@@ -1,0 +1,21 @@
+test
+println("""|Welcome to Ultamix 3000.
+             |Type "HELP" for help.""".stripMargin)
+println("""|Welcome to Ultamix 3000.
+             |Type "HELP" for help.""".stripMargin)
+"""STS|aa|kk"""
+"""STS|aa|kk""".stripMargin
+test
+val vect=Vector(Vector('a','b'),Vector('c','d'))
+val a=
+val a=2
+test
+val a =Stream(1,3,4)
+a =Stream(1,3,4)
+Stream(1,3,4)
+List()
+val a=2
+List()
+Seq()
+console
+test
