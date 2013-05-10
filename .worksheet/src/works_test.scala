@@ -1,8 +1,5 @@
-package streams
-import common._
-
-object test_works{;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(69); 
-
+object works_test {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(63); 
+  println("Welcome to the Scala worksheet");$skip(17); 
 println("hemmo");$skip(14); 
 lazy val cc=1;System.out.println("""cc: => Int""");$skip(3); val res$0 = 
 cc;System.out.println("""res0: Int = """ + $show(res$0));$skip(10); 
@@ -30,10 +27,10 @@ Vector(level.split("/n").map(str=>Vector(str:_*)):_*)
      def dy(d: Int) = copy(y = y + d)
   };System.out.println("""res4: scala.collection.immutable.Vector[scala.collection.immutable.Vector[Char]] = """ + $show(res$4));$skip(229); 
 
- def terrainFunction(levelVector: Vector[Vector[Char]]): Pos => Boolean = p => levelVector(p.x)(p.y) !='-';System.out.println("""terrainFunction: (levelVector: Vector[Vector[Char]])streams.test_works.Pos => Boolean""");$skip(72); 
+ def terrainFunction(levelVector: Vector[Vector[Char]]): Pos => Boolean = p => levelVector(p.x)(p.y) !='-';System.out.println("""terrainFunction: (levelVector: Vector[Vector[Char]])works_test.Pos => Boolean""");$skip(72); 
 
  
- val p=terrainFunction(Vector(Vector('S', 'T', '-', 'o', 'o', 'o')));System.out.println("""p  : streams.test_works.Pos => Boolean = """ + $show(p ));$skip(58); 
+ val p=terrainFunction(Vector(Vector('S', 'T', '-', 'o', 'o', 'o')));System.out.println("""p  : works_test.Pos => Boolean = """ + $show(p ));$skip(58); 
   
 val m =List(List("a","c"),List("b","f"),List("c","g"));System.out.println("""m  : List[List[String]] = """ + $show(m ));$skip(57); val res$5 = 
 m.map(x=> x match{case List(a,b)=>a::List("f")} ).toList;System.out.println("""res5: List[List[String]] = """ + $show(res$5));$skip(126); 

@@ -143,8 +143,9 @@ trait GameDef {
      * Returns the list of positions reachable from the current block
      * which are inside the terrain.
      */
-    def ghbors: List[(Block, Move)] = neighbors.filter(p=>p._1.isLegal)
-
+    def ghbors: List[(Block, Move)] = neighbors.filter(p=>p._1.isLegal) //return a legal neighbors les positions accessibles
+    
+    
     /**
      * 
      * Returns `true` if the block is standing.
@@ -156,6 +157,7 @@ trait GameDef {
      * Returns `true` if the block is entirely inside the terrain.
      */
     def isLegal: Boolean = terrain(b1) && terrain(b2)
+   
 
   }
 }

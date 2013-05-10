@@ -1,9 +1,6 @@
-package streams
-import Bloxorz._
-import common._
-
-
-object test_works{
+object works_test {
+  println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
+println("hemmo")                                  //> hemmo
 lazy val cc=1                                     //> cc: => Int
 cc                                                //> res0: Int = 1
 val kk =1                                         //> kk  : Int = 1
@@ -40,12 +37,12 @@ Vector(level.split("/n").map(str=>Vector(str:_*)):_*)
   }
 
  def terrainFunction(levelVector: Vector[Vector[Char]]): Pos => Boolean = p => levelVector(p.x)(p.y) !='-'
-                                                  //> terrainFunction: (levelVector: Vector[Vector[Char]])streams.test_works.Pos =
-                                                  //| > Boolean
+                                                  //> terrainFunction: (levelVector: Vector[Vector[Char]])works_test.Pos => Boolea
+                                                  //| n
 
  
  val p=terrainFunction(Vector(Vector('S', 'T', '-', 'o', 'o', 'o')))
-                                                  //> p  : streams.test_works.Pos => Boolean = <function1>
+                                                  //> p  : works_test.Pos => Boolean = <function1>
   
 val m =List(List("a","c"),List("b","f"),List("c","g"))
                                                   //> m  : List[List[String]] = List(List(a, c), List(b, f), List(c, g))

@@ -30,12 +30,15 @@ trait Solver extends GameDef {
    * that are inside the terrain.
    */
   def neighborsWithHistory(b: Block, history: List[Move]): Stream[(Block, List[Move])] = {
-    println("block.ghbors"+b.ghbors+" history" +history)
+    println("block.ghbors" + b.ghbors + " history" + history)
     b.ghbors.map(x => x match {
-    case (a, b) => (a, b :: history)
-  }).toStream}
+      case (a, b) => (a, b :: history)
+    }).toStream
+ 
+  }
 
-  /**
+  /*****
+   * 
    * This function returns the list of neighbors without the block
    * positions that have already been explored. We will use it to
    * make sure that we don't explore circular paths.
@@ -43,7 +46,8 @@ trait Solver extends GameDef {
   def newNeighborsOnly(neighbors: Stream[(Block, List[Move])],
     explored: Set[Block]): Stream[(Block, List[Move])] = {
     println(neighbors.take(4).toList)
-    neighbors.filterNot(z => explored contains z._1) }
+    neighbors.filterNot(z => explored contains z._1)
+  }
 
   /**
    * The function `from` returns the stream of all possible paths
@@ -67,6 +71,7 @@ trait Solver extends GameDef {
    * Note: the solution should not look at or compare the lengths
    * of different paths - the implementation should naturally
    * construct the correctly sorted stream.
+   * 
    */
   def from(initial: Stream[(Block, List[Move])],
     explored: Set[Block]): Stream[(Block, List[Move])] = if (initial.isEmpty) Stream.Empty else {
@@ -74,8 +79,9 @@ trait Solver extends GameDef {
       p <- initial
       n <- newNeighborsOnly(neighborsWithHistory(p._1, p._2), explored)
     } yield n
-  //  println(s"--->"+more.take(6).toList)
-     println("From ==>"+(initial #::: from(more, explored ++ initial.map(x => x._1))))
+    //  println(s"--->"+more.take(6).toList)
+    println("initial ==> "+initial.take(2).map(_._1).toList)
+    //println("From ==>" + (initial #::: from(more, explored ++ initial.map(x => x._1))))
     (initial #::: from(more, explored ++ initial.map(x => x._1)))
 
   }
@@ -94,6 +100,8 @@ trait Solver extends GameDef {
   lazy val pathsToGoal: Stream[(Block, List[Move])] = pathsFromStart.filter(x => done(x._1))
 
   /**
+   * 
+   * this solution path to Goal return the path want we apply filter to the done goal 				
    * The (or one of the) shortest sequence(s) of moves to reach the
    * goal. If the goal cannot be reached, the empty list is returned.
    *
@@ -103,11 +111,11 @@ trait Solver extends GameDef {
    */
   lazy val solution: List[Move] = {
     val path = pathsToGoal
-   
+    println("All path ==> "+path.take(2).toList )		
     if (path.isEmpty) List()
-    else
-    {  println("====>>> mon chemin : "+path.take(1).toList.head._2)
+    else {
+      println("====>>> mon chemin : " + path.take(1).toList.head._2)
       path.head._2
-  }
+    }
   }
 }
